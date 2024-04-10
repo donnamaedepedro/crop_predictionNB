@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data Input</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/data.css') }}">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4">Extracted Data Result</h1>
+        <p><strong>Coordinate:</strong> latitude = {{ center_latitude }}, longitude = {{ center_longitude }}</p>
+
+        <h2 class="mt-5 mb-3">Extracted Data</h2>
+        <form action="/predict" method="POST" id="weatherForm">
+            <div class="mb-3">
+                <h3>Temperature:</h3>
+                <p>Choose between maximum and minimum temperature use for predicting the crop</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="maxTempRadio" name="tempType" value="max" checked>
+                    <label class="form-check-label" for="maxTempRadio">Max Temperature</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="minTempRadio" name="tempType" value="min">
+                    <label class="form-check-label" for="minTempRadio">Min Temperature</label>
+                </div>
+                <input type="text" class="form-control mt-2" id="tempValue" name="temperature" placeholder="Enter Temperature" value="{{ average_max_temp }}" required>
+            </div>
+
+            <div class="mb-3">
+                <h3>Relative Humidity:</h3>
+                <input type="text" class="form-control" id="rh" name="rh" value="{{ average_humidity }}" placeholder="Average Humidity" required>
+            </div>
+
+            <div class="mb-3">
+                <h3>Precipitation:</h3>
+                <input type="text" class="form-control" id="precip" name="precip" value="{{ total_precipitation }}" placeholder="Total Precipitation" required>
+            </div>
+
+            <div class="mb-3">
+                <h3>Elevation:</h3>
+                <input type="text" class="form-control" id="elevation" name="elevation" value="{{ average_elevation }}" placeholder="Average Elevation" required>
+            </div>
+
+            <div class="mb-3">
+                <h3>Slope:</h3>
+                <input type="text" class="form-control" id="slope" name="slope" value="{{ average_slope }}" placeholder="Average Slope" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">Predict Crop</button>
+            <a href="/index" class="btn btn-danger">Back</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript code to handle temperature radio button selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const maxTempRadio = document.getElementById('maxTempRadio');
+            const minTempRadio = document.getElementById('minTempRadio');
+            const tempInput = document.getElementById('tempValue');
+
+            maxTempRadio.addEventListener('change', function() {
+                tempInput.placeholder = "Enter Max Temperature";
+                tempInput.value = "{{ average_max_temp }}";
+            });
+
+            minTempRadio.addEventListener('change', function() {
+                tempInput.placeholder = "Enter Min Temperature";
+                tempInput.value = "{{ average_min_temp }}";
+            });
+        });
+    </script>
+</body>
+</html>

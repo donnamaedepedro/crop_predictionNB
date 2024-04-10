@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60" />
+    <title>Clima-Grow - Crop Recommendation System</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link your custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">ClimaGrow: Crop Recommendation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#app-review">Review Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="jumbotron" id="hero-section">
+    <div class="container">
+        <h1 class="display-4">ClimaGrow</h1>
+        <p class="lead">Crop Recommendation System for the Municipality of Matanao</p>
+        <a href="/index" class="btn btn-primary btn-lg">Predict Crop Now</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features">
+    <div class="container">
+        <h2 class="text-center mb-4">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-cloud-sun feature-icon"></i>
+                    <h3>Local Climate Data</h3>
+                    <p>Utilize historical data and weather forecast data specific to Matanao for accurate recommendations.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-seedling feature-icon"></i>
+                    <h3>Crop Recommendations</h3>
+                    <p>Receive personalized crop suggestions based on topographical data and weather data.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-globe-asia feature-icon"></i>
+                    <h3>Local Expertise</h3>
+                    <p>Backed by agricultural experts familiar with the unique conditions of the Municipality of Matanao.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- App Review Section -->
+<section id="app-review">
+    <div class="container">
+        <h2 class="text-center mb-4">App Review</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <p>We would love to hear your feedback on our app! Please fill out the review form below:</p>
+                <!-- Replace 'YOUR_GOOGLE_FORM_URL' with the actual URL of your Google Form for app reviews -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdn00kuCzjsIXfODZDIpQaRgRemfOCa5a_ZXUCJrl3SmDlQyg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Link Bootstrap JS and Font Awesome (for icons) -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

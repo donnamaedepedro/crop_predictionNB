@@ -1,0 +1,58 @@
+/* Custom CSS for additional styling */
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 50px; /* Adding margin of 50px from the top */
+    background-color: #33CC86; /* Setting background color */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007bff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.locate-btn {
+    background-color: transparent !important; /* Remove background color */
+    border-color: transparent !important; /* Remove border color */
+    box-shadow: none !important; /* Remove box shadow */
+    padding: 0 !important; /* Remove padding */
+}
+
+.locate-btn img {
+    width: 30px; /* Set width of SVG icon */
+    height: 30px; /* Set height of SVG icon */
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ababab;
+    margin-bottom: 20px;
+}

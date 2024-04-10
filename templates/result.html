@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+    <script>
+        // JavaScript to show loading screen while waiting for response
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.querySelector('.loading-screen');
+            loadingScreen.style.display = 'flex'; // Show loading screen initially
+
+            // Set timeout to hide loading screen after 2 seconds
+            setTimeout(function() {
+                loadingScreen.style.display = 'none';
+                document.getElementById('result-container').style.display = 'block'; // Show result container
+            }, 2000); // 2000 milliseconds (2 seconds)
+        });
+    </script>
+</head>
+<body>
+
+    <div class="loading-screen">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="loading-text" style="color: #22ca68;">Loading...</div>
+    </div>
+    
+    <div class="main-container">
+        <div id="result-container" style="display: none;">
+            <h1>Prediction Result</h1>
+
+            <!-- Display top 1 predicted crop with image -->
+            {% if top_5_crops %}
+                <div class="top-crop-container">
+                    <img src="{{ crop_images[top_5_crops[0][0]] }}" alt="{{ top_5_crops[0][0] }}" class="top-crop-image">
+                    <div class="top-crop-details">
+                        <p>{{ top_5_crops[0][0] }}</p>
+                        <p>{{ top_5_crops[0][1]|round(2) }}% likelihood</p>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Display other predicted crops -->
+            <ul class="predicted-crops">
+                {% for crop, likelihood in top_5_crops[1:] %}
+                    <li class="predicted-crop-item">
+                        <p><strong>Top {{ loop.index + 1 }}</strong>: {{ crop }} with {{ likelihood|round(2) }}% likelihood</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        <!-- Home Button -->
+        <a href="/" class="home-button">Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

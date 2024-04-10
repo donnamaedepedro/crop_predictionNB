@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #4ecc33;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #4ecc33;
+    border-bottom: 1px solid #ffffff;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+#hero-section {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.jumbotron p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #4ecc33;
+    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 25px;
+}
+
+.btn-primary:hover {
+    background-color: #f5f5f5;
+    color: #4ecc33;
+}
+
+/* Features Section */
+#features {
+    background-color: #4ecc33;
+    padding: 50px 0;
+}
+
+.feature-item {
+    margin-bottom: 40px;
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #4ecc33;
+}
+
+.feature-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* App Review Section */
+#app-review {
+    background-color: #4ecc33;
+    padding: 50px 0;
+}
+
+#app-review h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#app-review p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.review-form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-form-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2.8rem;
+    }
+    
+    .jumbotron p {
+        font-size: 1.2rem;
+    }
+    
+    .btn-primary {
+        font-size: 1rem;
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+    }
+    
+    #app-review h2 {
+        font-size: 2rem;
+    }
+    
+    #app-review p {
+        font-size: 1rem;
+    }
+    
+    .review-form-container {
+        padding: 20px;
+    }
+}

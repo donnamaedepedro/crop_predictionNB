@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates Input Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- href="{{ url_for('static', filename='index.css') }}" -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Coordinates Input Form</h1>
+        <p>Plot your land by placing coordinates in the input below</p>
+        <form action="/datafetch" method="POST">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Point</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>GPS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Point 1:</td>
+                        <td><input type="text" id="point1_latitude" name="point1_latitude" class="form-control"
+                                required></td>
+                        <td><input type="text" id="point1_longitude" name="point1_longitude" class="form-control"
+                                required></td>
+                        <td>
+                            <button type="button" class="btn btn-primary locate-btn"
+                                onclick="getLocation('point1_latitude', 'point1_longitude')">
+                                <img src="{{ url_for('static', filename='images/locate.svg') }}" alt="Locate" width="30" height="30">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Point 2:</td>
+                        <td><input type="text" id="point2_latitude" name="point2_latitude" class="form-control"
+                                required></td>
+                        <td><input type="text" id="point2_longitude" name="point2_longitude" class="form-control"
+                                required></td>
+                        <td>
+                            <button type="button" class="btn btn-primary locate-btn"
+                                onclick="getLocation('point2_latitude', 'point2_longitude')">
+                                <img src="{{ url_for('static', filename='images/locate.svg') }}" alt="Locate" width="30" height="30">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Point 3:</td>
+                        <td><input type="text" id="point3_latitude" name="point3_latitude" class="form-control"
+                                required></td>
+                        <td><input type="text" id="point3_longitude" name="point3_longitude" class="form-control"
+                                required></td>
+                        <td>
+                            <button type="button" class="btn btn-primary locate-btn"
+                                onclick="getLocation('point3_latitude', 'point3_longitude')">
+                                <img src="{{ url_for('static', filename='images/locate.svg') }}" alt="Locate" width="30" height="30">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Point 4:</td>
+                        <td><input type="text" id="point4_latitude" name="point4_latitude" class="form-control"
+                                required></td>
+                        <td><input type="text" id="point4_longitude" name="point4_longitude" class="form-control"
+                                required></td>
+                        <td>
+                            <button type="button" class="btn btn-primary locate-btn"
+                                onclick="getLocation('point4_latitude', 'point4_longitude')">
+                                <img src="{{ url_for('static', filename='images/locate.svg') }}" alt="Locate" width="30" height="30">
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-grid gap-2 d-md-block text-center">
+                <button type="submit" class="btn btn-success">Next</button>
+                <a href="/" class="btn btn-danger">Back</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function getLocation(latitudeId, longitudeId) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Round latitude and longitude to six decimal places
+                    const latitude = position.coords.latitude.toFixed(6);
+                    const longitude = position.coords.longitude.toFixed(6);
+
+                    // Update input fields with formatted coordinates
+                    document.getElementById(latitudeId).value = latitude;
+                    document.getElementById(longitudeId).value = longitude;
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</body>
+
+</html>
